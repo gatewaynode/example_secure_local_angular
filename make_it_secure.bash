@@ -49,6 +49,9 @@
 #
 # sudo cp localhost.crt /usr/local/share/ca-certificates/
 # sudo update-ca-certificates
+#
+# For more ways to non-interactively trust check here: https://unix.stackexchange.com/questions/90450/adding-a-self-signed-certificate-to-the-trusted-list
+# There are differences between Debian and Redhat trust file layouts and operations
 
 echo "[req]
 default_bits = 2048
