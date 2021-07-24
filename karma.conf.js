@@ -1,6 +1,9 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 
+// Required to load the TLS certs from files
+var fs = require('fs');
+
 module.exports = function (config) {
   config.set({
     basePath: '',
@@ -39,6 +42,11 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: ['Chrome'],
     singleRun: false,
-    restartOnFileChange: true
+    restartOnFileChange: true,
+    httpsServerOptions: {
+      key: fs.readFileSync('localhost.key', 'utf8'),
+      cert: fs.readFileSync('localhost.crt', 'utf8')
+    },
+    protocol: 'https'
   });
 };

@@ -1,5 +1,9 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+# Even if it's perfectly ok, we should never share these in code anyway.
+*.crt
+*.key
+
 # compiled output
 /dist
 /tmp
