@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 #
+# DON'T USE THIS!  It's more or less just my running notes while working this out.
+#
 # Make a basic angular app serve over HTTPS with self signed certs.
 #
 # This is derived from a couple of different sources:
