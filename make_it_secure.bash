@@ -2,6 +2,49 @@
 #
 # Make a basic angular app serve over HTTPS with self signed certs.
 #
+# This is derived from a couple of different sources:
+# https://medium.com/@rubenvermeulen/running-angular-cli-over-https-with-a-trusted-certificate-4a0d5f92747a
+# https://medium.com/@richardr39/using-angular-cli-to-serve-over-https-locally-70dab07417c8
+# https://nodejs.org/en/knowledge/HTTP/servers/how-to-create-a-HTTPS-server/
+#
+# https://stackoverflow.com/questions/54453112/how-to-run-angular-with-https-when-by-default-it-runs-with-http
+#
+# Alternately the angular.json or angular-cli.json can have the "serve" section
+# adjusted with the ssl boolean and the key and cert
+# 
+# "serve": {
+#          "builder": "@angular-devkit/build-angular:dev-server",
+#          "configurations": {
+#            "production": {
+#              "browserTarget": "angular-base:build:production"
+#            },
+#            "development": {
+#              "browserTarget": "angular-base:build:development"
+#            }
+#          },
+#          "defaultConfiguration": "development",
+#          "options": 
+#          {
+#            "ssl": true,
+#            "sslKey": "localhost.key",
+#            "sslCert": "localhost.crt"
+#          }
+#        },
+#
+# For testing with the Karma framework we need to set the self signed keys in 
+# karma.conf.js
+#    // Required to load the TLS certs from files
+#    var fs = require('fs');
+#    ...
+#    singleRun: false,
+#    restartOnFileChange: true,
+#    httpsServerOptions: {
+#      key: fs.readFileSync('localhost.key', 'utf8'),
+#      cert: fs.readFileSync('localhost.crt', 'utf8')
+#    },
+#    protocol: 'https'
+#
+#
 
 echo "[req]
 default_bits = 2048
