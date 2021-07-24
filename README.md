@@ -19,16 +19,17 @@ Now add these two lines to your `.gitignore` file:
 *.key
 ```
 
-This parameter soup will generate two files, `localhost.key` and `localhost.crt`.  The `.key` file is very sensitive, always considered private and should never be shared.  The `.crt` file is a public certificate in the x509 format and can be shared, but out of a sense of consistency for security, should never be in code.
+This parameter soup will generate two files, `localhost.key` and `localhost.crt`.  The `.key` file is very sensitive, always considered private, and should never be shared.  The `.crt` file is a public certificate in the x509 format and can be shared, but out of a sense of consistency for security, should never be in code.
 
 ## Step 2: Set Angular to serve locally with TLS(HTTPS protocol)
 
 The Angular general configuration file needs to be modified to contain an `options` section which will contain: a boolean flag to serve SSL, a location for the certificate private key file, and a location for the public x509 certificate file.
 
-The server configuration section is going to be in `angular.json` or `angular-cli.json` depending on your version.
+The server configuration section is going to be in `angular.json` or `angular-cli.json` depending on your version.  The changes are in the `"options"` sub array.
 
 ```json
-"serve": {
+       ...
+       "serve": {
          "builder": "@angular-devkit/build-angular:dev-server",
          "configurations": {
            "production": {
