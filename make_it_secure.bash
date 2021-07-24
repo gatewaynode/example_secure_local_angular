@@ -45,6 +45,10 @@
 #    protocol: 'https'
 #
 #
+# For non-interactively trusting the certificate, at least in Linux:
+#
+# sudo cp localhost.crt /usr/local/share/ca-certificates/
+# sudo update-ca-certificates
 
 echo "[req]
 default_bits = 2048
